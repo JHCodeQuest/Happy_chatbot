@@ -1,0 +1,18 @@
+[
+{
+  "model": "faq.faq",
+  "pk": 1,
+  "fields": {
+    "question": "Order Status",
+    "answer": "Can you please provide your order number so I can check the status?"
+  }
+},
+{
+  "model": "faq.faq",
+  "pk": 2,
+  "fields": {
+    "question": "return",
+    "answer": "Sorry we don't allow returns."
+  }
+}
+]

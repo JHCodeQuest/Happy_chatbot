@@ -38,16 +38,37 @@ pip install -r requirements.txt
 
 	3.	Apply database migrations:
 
-python manage.py makemigrations
 python manage.py migrate
 
 
-	4.	Start the development server:
+	4.	(Optional) Load the sample FAQs, and create an admin login:
+
+python manage.py loaddata sample_faqs
+python manage.py createsuperuser
+
+
+	5.	Start the development server:
 
 python manage.py runserver
 
 
-	5.	Access the app at http://127.0.0.1:8000/ and the admin panel at http://127.0.0.1:8000/admin/.
+	6.	Access the app at http://127.0.0.1:8000/ and the admin panel at http://127.0.0.1:8000/admin/.
+
+Configuration
+
+All settings have working development defaults, so the app runs with no setup.
+Override via environment variables:
+
+DJANGO_SECRET_KEY          Required for any real deployment
+DJANGO_DEBUG               Set to False in production
+DJANGO_ALLOWED_HOSTS       Comma-separated hostnames
+EMAIL_HOST_USER            SMTP username. Unset = emails print to the console
+EMAIL_HOST_PASSWORD        SMTP password. Never commit this
+ADMIN_NOTIFICATION_EMAIL   Where unmatched-question alerts go. Unset = no alerts
+
+Running the tests
+
+python manage.py test faq
 
 Usage
 	1.	Chatbot:
@@ -58,7 +79,7 @@ Usage
 	•	Manage FAQs and review unmatched questions for future updates.
 
 Future Enhancements
-	•	Email Notifications: Notify admins of new unmatched questions.
 	•	Improved Matching: Integrate advanced AI models for natural language understanding.
 	•	Export/Import FAQs: Allow admins to import/export FAQs in bulk.
+	•	Conversation history: Keep a session transcript rather than a single reply.
 
